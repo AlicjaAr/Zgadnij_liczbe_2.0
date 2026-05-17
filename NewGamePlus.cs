@@ -60,11 +60,11 @@ public class NewGamePlus : Game
             }
             else if (guess < hiddenNumber)
             {
-                Console.WriteLine("Too low!");
+                Console.WriteLine(Messages.GetTooLow());
             }
             else
             {
-                Console.WriteLine("Too high!");
+                Console.WriteLine(Messages.GetTooHigh());
             }
         }
     }

@@ -111,8 +111,71 @@ public class Menu
 
     private void ShowSettings()
     {
-        Console.WriteLine($"Language: {settings.Language}");
+        bool isSettingsOpen = true;
 
-        Console.WriteLine($"Ask for bet mode: {settings.AskForBetMode}");
+        while (isSettingsOpen)
+        {
+            Console.WriteLine("=== SETTINGS ===");
+
+            Console.WriteLine($"Current language: {settings.Language}");
+
+            Console.WriteLine($"Ask for bet mode: {settings.AskForBetMode}");
+
+            Console.WriteLine();
+
+            Console.WriteLine("1. Change language");
+            Console.WriteLine("2. Toggle bet mode");
+            Console.WriteLine("3. Clear Hall Of Fame");
+            Console.WriteLine("4. Back");
+
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    ChangeLanguage();
+                    break;
+
+                case "2":
+                    settings.AskForBetMode = !settings.AskForBetMode;
+                    break;
+
+                case "3":
+                    ClearHallOfFame();
+                    break;
+
+                case "4":
+                    isSettingsOpen = false;
+                    break;
+
+                default:
+                    Console.WriteLine("Wrong option!");
+                    break;
+            }
+        }
+    }
+    private void ChangeLanguage()
+    {
+        if (settings.Language == Language.PL)
+        {
+            settings.Language = Language.EN;
+        }
+        else
+        {
+            settings.Language = Language.PL;
+        }
+    }
+    private void ClearHallOfFame()
+    {
+        Console.WriteLine("Are you sure? Y/N");
+
+        string answer = Console.ReadLine();
+
+        if (answer.ToUpper() == "Y")
+        {
+            hallOfFame.ClearResults();
+
+            Console.WriteLine("Hall Of Fame cleared!");
+        }
     }
 }

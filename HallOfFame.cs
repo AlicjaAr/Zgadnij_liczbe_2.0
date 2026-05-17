@@ -28,5 +28,9 @@ namespace Zgadnij_liczbe
                     $"{result.PlayerName} | {result.Attempts} | {result.TimeInSeconds}s");
             }
         }
+        public void ClearResults()
+        {
+            results.Clear();
+        }
     }
 }
