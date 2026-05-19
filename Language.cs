@@ -8,7 +8,7 @@ namespace Zgadnij_liczbe
 {
     public enum Language
     {
-        PL,
-        EN
+        EN,
+        PL
     }
 }

@@ -14,7 +14,7 @@ namespace Zgadnij_liczbe
 
         public Settings()
         {
-            Language = Language.PL;
+            Language = Language.EN;
             AskForBetMode = true;
         }
     }

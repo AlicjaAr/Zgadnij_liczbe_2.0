@@ -15,5 +15,7 @@ namespace Zgadnij_liczbe
         public int TimeInSeconds { get; set; }
 
         public Difficulty Difficulty { get; set; }
+
+        public bool IsNewGamePlus { get; set; }
     }
 }

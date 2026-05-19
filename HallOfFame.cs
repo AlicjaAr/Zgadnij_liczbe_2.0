@@ -22,15 +22,40 @@ namespace Zgadnij_liczbe
 
         public void ShowResults()
         {
-            foreach (Result result in results.Take(5))
+            ShowDifficultyResults(Difficulty.Easy);
+            ShowDifficultyResults(Difficulty.Medium);
+            ShowDifficultyResults(Difficulty.Hard);
+        }
+
+        private void ShowDifficultyResults(Difficulty difficulty)
+        {
+            Console.WriteLine($"=== {difficulty.ToString().ToUpper()} ===");
+
+            var filteredResults = results
+                .Where(r => r.Difficulty == difficulty)
+                .Take(5);
+
+            foreach (Result result in filteredResults)
             {
-                Console.WriteLine(
-                    $"{result.PlayerName} | {result.Attempts} | {result.TimeInSeconds}s");
+                string name = result.PlayerName;
+
+                if (result.IsNewGamePlus)
+                {
+                    name += " (NG+)";
+                }
+
+                Console.WriteLine($"{name} - {result.Attempts} attempts - {result.TimeInSeconds}s");
             }
+
+            Console.WriteLine();
         }
         public void ClearResults()
         {
             results.Clear();
+        }
+        public bool HasResults()
+        {
+            return results.Count > 0;
         }
     }
 }

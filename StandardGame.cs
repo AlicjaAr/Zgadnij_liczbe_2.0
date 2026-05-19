@@ -3,8 +3,8 @@ using Zgadnij_liczbe;
 
 public class StandardGame : Game
 {
-    public StandardGame(int min, int max, HallOfFame hallOfFame)
-        : base(min, max, hallOfFame)
+    public StandardGame(int min, int max, HallOfFame hallOfFame, int maxAttempts, Difficulty difficulty, bool isNewGamePlus)
+        : base(min, max, hallOfFame, maxAttempts, difficulty, false)
     {
     }
 
@@ -18,6 +18,13 @@ public class StandardGame : Game
 
         while (isPlaying)
         {
+            if (maxAttempts != -1 && attempts >= maxAttempts)
+            {
+                Console.WriteLine("You lost! No attempts left.");
+                isPlaying = false;
+                return;
+            }
+
             attempts++;
 
             Console.WriteLine($"Attempt: {attempts}");
@@ -40,6 +47,10 @@ public class StandardGame : Game
                 result.Attempts = attempts;
 
                 result.TimeInSeconds = (int)timer.Elapsed.TotalSeconds;
+
+                result.Difficulty = difficulty;
+
+                result.IsNewGamePlus = isNewGamePlus;
 
                 hallOfFame.AddResult(result);
 

@@ -27,12 +27,18 @@ public class Menu
             Console.WriteLine("=== GUESS THE NUMBER 2 ===");
 
             Console.WriteLine("| 1. New Game             |");
-            Console.WriteLine("| 2. Hall Of Fame         |");
+
+            if (hallOfFame.HasResults())
+            {
+                Console.WriteLine("| 2. Hall Of Fame         |");
+            }
+
             Console.WriteLine("| 3. Settings             |");
             Console.WriteLine("| 4. Exit                 |");
             Console.WriteLine("==========================");
 
             string choice = Console.ReadLine();
+
 
             switch (choice)
             {
@@ -41,7 +47,12 @@ public class Menu
                     break;
 
                 case "2":
-                    hallOfFame.ShowResults();
+
+                    if (hallOfFame.HasResults())
+                    {
+                        hallOfFame.ShowResults();
+                    }
+
                     break;
 
                 case "3":
@@ -73,21 +84,28 @@ public class Menu
 
         string difficultyChoice = Console.ReadLine();
 
+        int maxAttempts = -1;
+
         int min = 1;
         int max = 100;
+
+        Difficulty difficultyName = Difficulty.Medium;
 
         switch (difficultyChoice)
         {
             case "1":
                 max = 50;
+                difficultyName = Difficulty.Easy;
                 break;
 
             case "2":
                 max = 100;
+                difficultyName = Difficulty.Medium;
                 break;
 
             case "3":
                 max = 250;
+                difficultyName = Difficulty.Hard;
                 break;
 
             default:
@@ -95,15 +113,28 @@ public class Menu
                 break;
         }
 
+        if (settings.AskForBetMode)
+        {
+            Console.WriteLine("Do you want bet mode? (Y/N)");
+
+            string bet = Console.ReadLine();
+
+            if (bet.ToUpper() == "Y")
+            {
+                Console.WriteLine("Enter max attempts:");
+                maxAttempts = int.Parse(Console.ReadLine());
+            }
+        }
+
         Game game;
 
         if (choice == "1")
         {
-            game = new StandardGame(min, max, hallOfFame);
+            game = new StandardGame(min, max, hallOfFame, maxAttempts, difficultyName, false);
         }
         else
         {
-            game = new NewGamePlus(min, max, hallOfFame);
+            game = new NewGamePlus(min, max, hallOfFame, maxAttempts, difficultyName, true);
         }
 
         game.StartGame();
