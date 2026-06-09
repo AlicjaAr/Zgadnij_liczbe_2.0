@@ -29,7 +29,12 @@ public class StandardGame : Game
 
             Console.WriteLine($"Attempt: {attempts}");
 
-            int guess = int.Parse(Console.ReadLine());
+            int guess;
+
+            while (!int.TryParse(Console.ReadLine(), out guess))
+            {
+                Console.WriteLine("Please enter a valid number!");
+            }
 
             if (guess == hiddenNumber)
             {

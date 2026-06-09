@@ -39,6 +39,14 @@ public class Menu
 
             string choice = Console.ReadLine();
 
+            while (choice != "1" &&
+                   choice != "3" &&
+                   choice != "4" &&
+                   !(choice == "2" && hallOfFame.HasResults()))
+            {
+                Console.WriteLine("Invalid option. Please try again.");
+                choice = Console.ReadLine();
+            }
 
             switch (choice)
             {
@@ -76,6 +84,11 @@ public class Menu
         Console.WriteLine("2. New Game Plus");
 
         string choice = Console.ReadLine();
+        while (choice != "1" && choice != "2")
+        {
+            Console.WriteLine("Please choose 1 or 2.");
+            choice = Console.ReadLine();
+        }
 
         Console.WriteLine("Choose difficulty:");
         Console.WriteLine("1. Easy");
@@ -83,6 +96,14 @@ public class Menu
         Console.WriteLine("3. Hard");
 
         string difficultyChoice = Console.ReadLine();
+
+        while (difficultyChoice != "1" &&
+       difficultyChoice != "2" &&
+       difficultyChoice != "3")
+        {
+            Console.WriteLine("Please choose 1, 2 or 3.");
+            difficultyChoice = Console.ReadLine();
+        }
 
         int maxAttempts = -1;
 
@@ -119,10 +140,24 @@ public class Menu
 
             string bet = Console.ReadLine();
 
+            while (bet.ToUpper() != "Y" &&
+                bet.ToUpper() != "N")
+            {
+                Console.WriteLine("Please enter Y or N.");
+                bet = Console.ReadLine();
+            }
+
             if (bet.ToUpper() == "Y")
             {
                 Console.WriteLine("Enter max attempts:");
-                maxAttempts = int.Parse(Console.ReadLine());
+                int limit;
+
+                while (!int.TryParse(Console.ReadLine(), out limit) || limit <= 0)
+                {
+                    Console.WriteLine("Podaj dodatnią liczbę!");
+                }
+
+                maxAttempts = limit;
             }
         }
 
@@ -160,6 +195,15 @@ public class Menu
             Console.WriteLine("4. Back");
 
             string choice = Console.ReadLine();
+
+            while (choice != "1" &&
+                choice != "2" &&
+                choice != "3" &&
+                choice != "4")
+            {
+                Console.WriteLine("Please choose a valid option.");
+                choice = Console.ReadLine();
+            }
 
             switch (choice)
             {
@@ -201,6 +245,13 @@ public class Menu
         Console.WriteLine("Are you sure? Y/N");
 
         string answer = Console.ReadLine();
+
+        while (answer.ToUpper() != "Y" &&
+            answer.ToUpper() != "N")
+        {
+            Console.WriteLine("Please enter Y or N.");
+            answer = Console.ReadLine();
+        }
 
         if (answer.ToUpper() == "Y")
         {
