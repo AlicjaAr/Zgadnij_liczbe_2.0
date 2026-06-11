@@ -80,5 +80,3 @@ W ustawieniach można:
 
 ---
 
-# Wykorzystane elementy OOP
-
