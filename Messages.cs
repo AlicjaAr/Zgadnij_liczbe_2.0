@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Zgadnij_liczbe;
 
 public static class Messages
 {
+    private static Random random = new Random();
     public static Language CurrentLanguage { get; set; } = Language.EN;
 
     private static readonly Dictionary<string, (string EN, string PL)> Texts =
@@ -15,7 +17,7 @@ public static class Messages
         { "HallOfFame", ("Hall Of Fame", "Tablica Wyników") },
 
         // DIFFICULTY
-        { "Difficulty", ("Choose difficulty:", "Wybierz poziom trudności:") }
+        { "Difficulty", ("Choose difficulty:", "Wybierz poziom trudności:") },
         { "Easy", ("Easy", "Łatwy") },
         { "Medium", ("Medium", "Średni") },
         { "Hard", ("Hard", "Trudny") },
@@ -28,7 +30,7 @@ public static class Messages
         { "Lose", ("You lost!", "Przegrałeś!") },
         { "EnterName", ("Enter your name:", "Podaj imię:") },
         { "HiddenChanged", ("Hidden number changed!", "Ukryta liczba została zmieniona!") },
-        { "AttemptsLeft", ("Attempts:", "Próby:") }
+        { "AttemptsLeft", ("Attempts:", "Próby:") },
 
         //Settings
         { "Changelan", ("Change language", "Zmień język") },
