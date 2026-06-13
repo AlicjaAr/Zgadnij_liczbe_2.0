@@ -20,14 +20,14 @@ public class StandardGame : Game
         {
             if (maxAttempts != -1 && attempts >= maxAttempts)
             {
-                Console.WriteLine("You lost! No attempts left.");
+                Console.WriteLine(Messages.Get("Lose"));
                 isPlaying = false;
                 return;
             }
 
             attempts++;
 
-            Console.WriteLine($"Attempt: {attempts}");
+            Console.WriteLine($ {Messages.Get("AttemptsLeft")}: {attempts});
 
             int guess;
 
@@ -40,8 +40,8 @@ public class StandardGame : Game
             {
                 timer.Stop();
 
-                Console.WriteLine("You won!");
-                Console.WriteLine("Enter your name:");
+                Console.WriteLine(Messages.Get("Win"));
+                Console.WriteLine(Messages.Get("EnterName"));
 
                 string playerName = Console.ReadLine();
 
