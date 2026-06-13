@@ -24,6 +24,8 @@ public class Menu
 
         while (isRunning)
         {
+            Messages.CurrentLanguage = settings.Language;
+            
             Console.WriteLine("=== GUESS THE NUMBER 2 ===");
 
             Console.WriteLine("| 1. New Game             |");
