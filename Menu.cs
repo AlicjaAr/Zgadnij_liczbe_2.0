@@ -28,15 +28,15 @@ public class Menu
             
             Console.WriteLine("=== GUESS THE NUMBER 2 ===");
 
-            Console.WriteLine("| 1. New Game             |");
+            Console.WriteLine($| 1. {Messages.Get("NewGame")}             |$);
 
             if (hallOfFame.HasResults())
             {
-                Console.WriteLine("| 2. Hall Of Fame         |");
+                Console.WriteLine($| 2. Hall Of Fame         |&);
             }
 
-            Console.WriteLine("| 3. Settings             |");
-            Console.WriteLine("| 4. Exit                 |");
+            Console.WriteLine($| 3. {Messages.Get("Settings")}             |$);
+            Console.WriteLine($| 4. {Messages.Get("Exit")}                 |$);
             Console.WriteLine("==========================");
 
             string choice = Console.ReadLine();
@@ -46,7 +46,7 @@ public class Menu
                    choice != "4" &&
                    !(choice == "2" && hallOfFame.HasResults()))
             {
-                Console.WriteLine("Invalid option. Please try again.");
+                Console.WriteLine(Messages.Get("InvalidInput"));
                 choice = Console.ReadLine();
             }
 
@@ -74,7 +74,7 @@ public class Menu
                     break;
 
                 default:
-                    Console.WriteLine("Wrong option!");
+                    Console.WriteLine(Messages.Get("InvalidInput"));
                     break;
             }
         }
@@ -88,14 +88,14 @@ public class Menu
         string choice = Console.ReadLine();
         while (choice != "1" && choice != "2")
         {
-            Console.WriteLine("Please choose 1 or 2.");
+            Console.WriteLine(Messages.Get("InvalidInput"));
             choice = Console.ReadLine();
         }
 
-        Console.WriteLine("Choose difficulty:");
-        Console.WriteLine("1. Easy");
-        Console.WriteLine("2. Medium");
-        Console.WriteLine("3. Hard");
+        Console.WriteLine(Messages.Get("Difficulty"));
+        Console.WriteLine(&1. Messages.Get("Easy")$);
+        Console.WriteLine(&2. Messages.Get("Medium")$);
+        Console.WriteLine($3. Messages.Get("Hard")$);
 
         string difficultyChoice = Console.ReadLine();
 
@@ -103,7 +103,7 @@ public class Menu
        difficultyChoice != "2" &&
        difficultyChoice != "3")
         {
-            Console.WriteLine("Please choose 1, 2 or 3.");
+            Console.WriteLine(Messages.Get("InvalidInput"));
             difficultyChoice = Console.ReadLine();
         }
 
@@ -138,7 +138,7 @@ public class Menu
 
         if (settings.AskForBetMode)
         {
-            Console.WriteLine("Do you want bet mode? (Y/N)");
+            Console.WriteLine(Messages.Get("BetMode"));
 
             string bet = Console.ReadLine();
 
@@ -151,7 +151,7 @@ public class Menu
 
             if (bet.ToUpper() == "Y")
             {
-                Console.WriteLine("Enter max attempts:");
+                Console.WriteLine(Messages.Get("MaxAtt"));
                 int limit;
 
                 while (!int.TryParse(Console.ReadLine(), out limit) || limit <= 0)
@@ -183,7 +183,7 @@ public class Menu
 
         while (isSettingsOpen)
         {
-            Console.WriteLine("=== SETTINGS ===");
+            Console.WriteLine($=== {Messages.Get("Settings")} ===$);
 
             Console.WriteLine($"Current language: {settings.Language}");
 
