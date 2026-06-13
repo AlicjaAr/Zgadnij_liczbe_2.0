@@ -33,7 +33,7 @@ public class NewGamePlus : Game
 
             attempts++;
 
-            Console.WriteLine($ "{Messages.Get("AttemptsLeft")}: {attempts}");
+            Console.WriteLine($"{Messages.Get("AttemptsLeft")}: {attempts}");
 
             int guess;
 
