@@ -28,15 +28,15 @@ public class Menu
             
             Console.WriteLine("=== GUESS THE NUMBER 2 ===");
 
-            Console.WriteLine($| 1. {Messages.Get("NewGame")}             |);
+            Console.WriteLine($"| 1. {Messages.Get("NewGame")"}             |);
 
             if (hallOfFame.HasResults())
             {
-                Console.WriteLine($| 2. Hall Of Fame         |);
+                Console.WriteLine($"| 2. Hall Of Fame         |");
             }
 
-            Console.WriteLine($| 3. {Messages.Get("Settings")}             |);
-            Console.WriteLine($| 4. {Messages.Get("Exit")}                 |);
+            Console.WriteLine($"| 3. {Messages.Get("Settings")"}             |);
+            Console.WriteLine($"| 4. {Messages.Get("Exit")"}                 |);
             Console.WriteLine("==========================");
 
             string choice = Console.ReadLine();
@@ -93,9 +93,9 @@ public class Menu
         }
 
         Console.WriteLine(Messages.Get("Difficulty"));
-        Console.WriteLine(&1. {Messages.Get("Easy")});
-        Console.WriteLine(&2. {Messages.Get("Medium")});
-        Console.WriteLine($3. {Messages.Get("Hard")});
+        Console.WriteLine($"1. {Messages.Get("Easy")}");
+        Console.WriteLine($"2. {Messages.Get("Medium")}");
+        Console.WriteLine($"3. {Messages.Get("Hard")}");
 
         string difficultyChoice = Console.ReadLine();
 
@@ -183,7 +183,7 @@ public class Menu
 
         while (isSettingsOpen)
         {
-            Console.WriteLine($=== {Messages.Get("Settings")} ===);
+            Console.WriteLine($"=== {Messages.Get("Settings")} ===");
 
             Console.WriteLine($"Current language: {settings.Language}");
 
@@ -191,10 +191,10 @@ public class Menu
 
             Console.WriteLine();
 
-            Console.WriteLine($1. {Messages.Get("Changelan")});
-            Console.WriteLine($2. {Messages.Get("AskBet")});
-            Console.WriteLine($3. {Messages.Get("ClearHOF")});
-            Console.WriteLine($4. {Messages.Get("Back")});
+            Console.WriteLine($"1. {Messages.Get("Changelan")}");
+            Console.WriteLine($"2. {Messages.Get("AskBet")}");
+            Console.WriteLine($"3. {Messages.Get("ClearHOF")}");
+            Console.WriteLine($"4. {Messages.Get("Back")}");
 
             string choice = Console.ReadLine();
 
