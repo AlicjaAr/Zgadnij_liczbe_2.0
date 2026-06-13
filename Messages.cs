@@ -1,60 +1,41 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 public static class Messages
 {
-    private static Random random = new Random();
+    public static Language CurrentLanguage { get; set; } = Language.EN;
 
-    public static Language CurrentLanguage {get; set} = Language.EN;
-    
-    private static List<string> tooLowEN = new List<string>
+    private static readonly Dictionary<string, (string EN, string PL)> Texts =
+        new Dictionary<string, (string EN, string PL)>
     {
-        "Too low!",
-        "Number is too small :(",
-        "Try higher!",
-        "Go up!",
-        "Increase it!"
+        // MENU
+        { "NewGame", ("New Game", "Nowa Gra") },
+        { "Settings", ("Settings", "Ustawienia") },
+        { "Exit", ("Exit", "Wyjście") },
+        { "HallOfFame", ("Hall Of Fame", "Tablica Wyników") },
+
+        // DIFFICULTY
+        { "Easy", ("Easy", "Łatwy") },
+        { "Medium", ("Medium", "Średni") },
+        { "Hard", ("Hard", "Trudny") },
+
+        // GAME TEXT
+        { "TooLow", ("Too low!", "Za mało!") },
+        { "TooHigh", ("Too high!", "Za dużo!") },
+        { "InvalidInput", ("Invalid input!", "Niepoprawna wartość!") },
+        { "Win", ("You won!", "Wygrałeś!") },
+        { "Lose", ("You lost!", "Przegrałeś!") },
+        { "EnterName", ("Enter your name:", "Podaj imię:") },
+        { "HiddenChanged", ("Hidden number changed!", "Ukryta liczba została zmieniona!") },
+        { "AttemptsLeft", ("Attempts:", "Próby:") }
     };
 
-    private static List<string> tooHighEN = new List<string>
-    {
-        "Too high!",
-        "Number is too big :(",
-        "Try lower!",
-        "Go down!",
-        "Slow down!"
-    };
-
-    public static Language CurrentLanguage {get; set} = Language.PL;
-
-    private static List<string> tooLowPL = new List<string>
-    {
-        "Za mało!",
-        "Za mała liczba :(",
-        "Spróbuj większej!",
-        "Idź w górę!",
-        "Zwiększ wartość!"
-    };
-
-    private static List<string> tooHighPL = new List<string>
+    public static string Get(string key)
 {
-        "Za dużo!",
-        "Za duża liczba :(",
-        "Spróbuj mniejszej!",
-        "Idź w dół!",
-        "Zwolnij trochę!"
-    };
+    if (!Texts.ContainsKey(key))
+        return key;
 
-    public static string GetTooLow()
-{
-    if (CurrentLanguage == Language.PL)
-        return tooLowPL[random.Next(tooLowPL.Count)];
-    return tooLowEN[random.Next(tooLowEN.Count)];
-}
-
-    public static string GetTooHigh()
-{
-    if (CurrentLanguage == Language.PL)
-        return tooHighPL[random.Next(tooHighPL.Count)];
-    return tooHighEN[random.Next(tooHighEN.Count)];
+    return CurrentLanguage == Language.PL
+        ? Texts[key].PL
+        : Texts[key].EN;
 }
