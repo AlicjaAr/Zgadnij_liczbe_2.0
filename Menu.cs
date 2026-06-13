@@ -28,15 +28,15 @@ public class Menu
             
             Console.WriteLine("=== GUESS THE NUMBER 2 ===");
 
-            Console.WriteLine($"| 1. {Messages.Get("NewGame")"}             |);
+            Console.WriteLine($"| 1. {Messages.Get("NewGame")}             |");
 
             if (hallOfFame.HasResults())
             {
                 Console.WriteLine($"| 2. Hall Of Fame         |");
             }
 
-            Console.WriteLine($"| 3. {Messages.Get("Settings")"}             |);
-            Console.WriteLine($"| 4. {Messages.Get("Exit")"}                 |);
+            Console.WriteLine($"| 3. {Messages.Get("Settings")}             |");
+            Console.WriteLine($"| 4. {Messages.Get("Exit")}                 |");
             Console.WriteLine("==========================");
 
             string choice = Console.ReadLine();
