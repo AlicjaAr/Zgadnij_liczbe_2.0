@@ -26,14 +26,14 @@ public class NewGamePlus : Game
         {
             if (maxAttempts != -1 && attempts >= maxAttempts)
             {
-                Console.WriteLine("You lost! No attempts left.");
+                Console.WriteLine(Messages.Get("Lose"));
                 isPlaying = false;
                 return;
             }
 
             attempts++;
 
-            Console.WriteLine($"Attempt: {attempts}");
+            Console.WriteLine($ {Messages.Get("AttemptsLeft")}: {attempts}");
 
             int guess;
 
@@ -46,15 +46,15 @@ public class NewGamePlus : Game
             {
                 GenerateNumber();
 
-                Console.WriteLine("Hidden number changed!");
+                Console.WriteLine(Messages.Get("HiddenChanged"));
             }
 
             if (guess == hiddenNumber)
             {
                 timer.Stop();
 
-                Console.WriteLine("You won!");
-                Console.WriteLine("Enter your name:");
+                Console.WriteLine(Messages.Get("Win"));
+                Console.WriteLine(Messages.Get("EnterName"));
 
                 string playerName = Console.ReadLine();
 
