@@ -44,7 +44,7 @@ namespace Zgadnij_liczbe
                     name += " (NG+)";
                 }
 
-                Console.WriteLine($"{name} - {result.Attempts} attempts - {result.TimeInSeconds}s");
+                Console.WriteLine($"{name} - {result.Attempts} {Messages.Get("Attempts")} - {result.TimeInSeconds}s");
             }
 
             Console.WriteLine();

@@ -14,7 +14,7 @@ public static class Messages
         { "NewGame", ("New Game", "Nowa Gra") },
         { "Settings", ("Settings", "Ustawienia") },
         { "Exit", ("Exit", "Wyjście") },
-        { "HallOfFame", ("Hall Of Fame", "Tablica Wyników") },
+        { "HallOfFame", ("Hall Of Fame", "Hall Of Fame") },
 
         // DIFFICULTY
         { "Difficulty", ("Choose difficulty:", "Wybierz poziom trudności:") },
@@ -31,12 +31,30 @@ public static class Messages
         { "EnterName", ("Enter your name:", "Podaj imię:") },
         { "HiddenChanged", ("Hidden number changed!", "Ukryta liczba została zmieniona!") },
         { "AttemptsLeft", ("Attempts:", "Próby:") },
+        {"Attempts", (" attempts", " próby")  },
 
         //Settings
         { "Changelan", ("Change language", "Zmień język") },
         { "AskBet", ("Ask for bet mode", "Ustawienia Bet mode") },
         { "ClearHOF", ("Clear Hall Of Fame", "Wyczyść Hall Of Fame") },
         { "Back", ("Back", "Powrót") },
+
+        // Bet mode
+        { "BetModeEnabled", ("Bet mode enabled!", "Tryb zakładu włączony!") },
+        { "BetModeDisabled", ("Bet mode disabled!", "Tryb zakładu wyłączony!") },
+
+        // Clear HOF
+        { "HOFCleared", ("Hall Of Fame cleared!", "Tablica Wyników wyczyszczona!") },
+
+
+        //valid number
+        { "EnterValidNumber", ("Please enter a valid number!", "Wprowadź poprawną liczbę!") },
+
+        //settings
+         { "CurrentLanguage", ("Current language:", "Aktualny język:") },
+         { "AskForBetMode", ("Ask for bet mode:", "Pytaj o tryb zakładu:") },
+         {"AreYouSure", ("Are you sure? (Y/N)", "Czy jesteś pewien? (Y/N)")  },
+
 
     };
 

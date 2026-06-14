@@ -39,7 +39,7 @@ public class NewGamePlus : Game
 
             while (!int.TryParse(Console.ReadLine(), out guess))
             {
-                Console.WriteLine("Please enter a valid number!");
+                Console.WriteLine(Messages.Get("EnterValidNumber"));
             }
 
             if (attempts == rerollAfter)

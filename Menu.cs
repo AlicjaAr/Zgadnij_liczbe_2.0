@@ -145,7 +145,7 @@ public class Menu
             while (bet.ToUpper() != "Y" &&
                 bet.ToUpper() != "N")
             {
-                Console.WriteLine("Please enter Y or N.");
+                Console.WriteLine(Messages.Get("InvalidInput"));
                 bet = Console.ReadLine();
             }
 
@@ -156,7 +156,7 @@ public class Menu
 
                 while (!int.TryParse(Console.ReadLine(), out limit) || limit <= 0)
                 {
-                    Console.WriteLine("Podaj dodatnią liczbę!");
+                    Console.WriteLine(Messages.Get("EnterValidNumber"));
                 }
 
                 maxAttempts = limit;
@@ -185,9 +185,9 @@ public class Menu
         {
             Console.WriteLine($"=== {Messages.Get("Settings")} ===");
 
-            Console.WriteLine($"Current language: {settings.Language}");
+            Console.WriteLine($" {Messages.Get("CurrentLanguage")}: {settings.Language}");
 
-            Console.WriteLine($"Ask for bet mode: {settings.AskForBetMode}");
+            Console.WriteLine($" {Messages.Get("AskForBetMode")}: {settings.AskForBetMode}");
 
             Console.WriteLine();
 
@@ -203,7 +203,7 @@ public class Menu
                 choice != "3" &&
                 choice != "4")
             {
-                Console.WriteLine("Please choose a valid option.");
+                Console.WriteLine(Messages.Get("InvalidInput"));
                 choice = Console.ReadLine();
             }
 
@@ -226,7 +226,7 @@ public class Menu
                     break;
 
                 default:
-                    Console.WriteLine("Wrong option!");
+                    Console.WriteLine(Messages.Get("InvalidInput"));
                     break;
             }
         }
@@ -244,14 +244,14 @@ public class Menu
     }
     private void ClearHallOfFame()
     {
-        Console.WriteLine("Are you sure? Y/N");
+        Console.WriteLine(Messages.Get("AreYouSure"));
 
         string answer = Console.ReadLine();
 
         while (answer.ToUpper() != "Y" &&
             answer.ToUpper() != "N")
         {
-            Console.WriteLine("Please enter Y or N.");
+            Console.WriteLine(Messages.Get("InvalidInput"));
             answer = Console.ReadLine();
         }
 
@@ -259,7 +259,7 @@ public class Menu
         {
             hallOfFame.ClearResults();
 
-            Console.WriteLine("Hall Of Fame cleared!");
+            Console.WriteLine(Messages.Get("HOFCleared"));
         }
     }
 }
